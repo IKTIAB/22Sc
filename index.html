@@ -17,7 +17,7 @@ body::before{
   content:"";
   position:fixed;
   inset:0;
-  background:url("https://raw.githubusercontent.com/IKTIAB/22sc.github.io/main/image0-1.jpg") center/cover no-repeat;
+  background:url("image0-1.jpg") center/cover no-repeat;
   animation:bgZoom 45s ease-in-out infinite;
   z-index:-2;
 }
@@ -42,7 +42,6 @@ body::after{
   justify-content:center;
   align-items:center;
   gap:14px;
-  backdrop-filter:blur(6px);
   text-align:center;
 }
 
@@ -85,10 +84,7 @@ body::after{
 .bio span:nth-child(5){animation-delay:1.8s}
 
 @keyframes lineIn{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  to{opacity:1;transform:translateY(0);}
 }
 
 /* اللوقوهات */
@@ -165,10 +161,10 @@ body::after{
 
 <body>
 
-<audio id="music" src="https://raw.githubusercontent.com/IKTIAB/22sc.github.io/main/f1yx0b.mp4"></audio>
+<audio id="music" src="memories.mp3"></audio>
 
 <div class="card">
-  <img class="avatar" src="https://raw.githubusercontent.com/IKTIAB/22sc.github.io/main/16e12fe516cf718b52ae315638e9fc45.jpg">
+  <img class="avatar" src="31237.jpg">
   <div class="name">22sc</div>
 
   <div class="bio">
@@ -204,7 +200,6 @@ body::after{
 const music=document.getElementById("music");
 const playBtn=document.getElementById("playBtn");
 const seek=document.getElementById("seek");
-const copy=document.getElementById("copyDiscord");
 
 playBtn.onclick=()=>{
   if(music.paused){
@@ -224,7 +219,7 @@ seek.oninput=()=>{
   music.currentTime=(seek.value/100)*music.duration;
 };
 
-copy.onclick=()=>{
+document.getElementById("copyDiscord").onclick=()=>{
   navigator.clipboard.writeText("561344344699830272");
 };
 </script>
