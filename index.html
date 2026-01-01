@@ -5,178 +5,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>22sc</title>
 
-<!-- Fonts & Icons -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Amiri&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;color:#fff;background:#000;font-family:sans-serif}
-
-/* ===== LOADING INTRO ===== */
-#intro{
-  position:fixed;inset:0;
-  background:#05080f;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:'Orbitron';
-  font-size:28px;
-  letter-spacing:6px;
-  z-index:9999;
-  animation:introOut 1.2s ease forwards;
-  animation-delay:1.6s;
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-@keyframes introOut{
-  to{opacity:0;pointer-events:none}
+html,body{
+  width:100%;
+  height:100%;
+  font-family:sans-serif;
+  background:#000;
+  color:#fff;
 }
 
-/* ===== BACKGROUND FIX ===== */
+/* ===== BACKGROUND ===== */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   background:url("./image0-1.jpg") center/cover no-repeat;
-  z-index:-3;
+  z-index:-2;
 }
 body::after{
   content:"";
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.5);
-  z-index:-2;
-}
-
-/* ===== NOISE ===== */
-.noise{
-  position:fixed;
-  inset:0;
-  background:url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity:.07;
+  background:rgba(0,0,0,.55);
   z-index:-1;
 }
 
-/* ===== MAIN CARD ===== */
-.card{
+/* ===== LAYOUT ===== */
+.main{
   min-height:100vh;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
-  gap:14px;
   padding:20px;
-  opacity:0;
-  animation:fadeIn 1.4s ease forwards;
-  animation-delay:1.8s;
 }
-@keyframes fadeIn{to{opacity:1}}
 
+/* ===== CARD ===== */
+.card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  animation:fadeIn 1.2s ease forwards;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:none}
+}
+
+/* ===== AVATAR ===== */
 .avatar{
   width:110px;
   height:110px;
   border-radius:50%;
-  border:2px solid rgba(255,255,255,.4);
   object-fit:cover;
+  border:2px solid rgba(255,255,255,.4);
 }
 
+/* ===== NAME ===== */
 .name{
   font-family:'Orbitron';
-  letter-spacing:3px;
   font-size:24px;
-}
-.name::after{
-  content:"";
-  width:40%;
-  height:2px;
-  background:#6ecbff;
-  display:block;
-  margin:8px auto 0;
-  opacity:.7;
+  letter-spacing:3px;
 }
 
 /* ===== BIO ===== */
 .bio{
   font-family:'Amiri';
   font-size:15px;
-  line-height:1.9;
+  line-height:1.8;
   color:#dff3ff;
 }
-.bio span{
-  display:block;
-  opacity:0;
-  animation:lineIn 1s forwards;
-}
-.bio span:nth-child(1){animation-delay:.3s}
-.bio span:nth-child(2){animation-delay:.6s}
-.bio span:nth-child(3){animation-delay:.9s}
-.bio span:nth-child(4){animation-delay:1.2s}
-.bio span:nth-child(5){animation-delay:1.5s}
-@keyframes lineIn{to{opacity:1}}
 
 /* ===== LINKS ===== */
 .links{
   display:flex;
-  gap:18px;
+  gap:16px;
   margin-top:10px;
 }
-.links a,.copy-btn{
-  width:44px;
-  height:44px;
+.links a{
+  width:42px;
+  height:42px;
   border-radius:50%;
   background:rgba(255,255,255,.15);
   display:flex;
   align-items:center;
   justify-content:center;
+  color:#fff;
   font-size:20px;
   transition:.3s;
-  cursor:pointer;
 }
-.links a:hover,.copy-btn:hover{
+.links a:hover{
   transform:scale(1.2);
   background:rgba(255,255,255,.35);
-}
-
-/* ===== PLAYER ===== */
-.player{
-  position:fixed;
-  bottom:18px;
-  left:50%;
-  transform:translateX(-50%);
-  width:90%;
-  max-width:320px;
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.glow-line{
-  width:3px;
-  height:60px;
-  background:linear-gradient(180deg,#6ecbff,#1e90ff);
-  box-shadow:0 0 18px rgba(80,160,255,.9);
-  animation:pulse 2s infinite;
-}
-@keyframes pulse{
-  0%{opacity:.3}
-  50%{opacity:1}
-  100%{opacity:.3}
-}
-
-.player-ui{flex:1}
-input[type=range]{width:100%}
-
-.play-btn{
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:#fff;
-  color:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:24px;
-  cursor:pointer;
 }
 
 /* ===== MOBILE ===== */
@@ -189,96 +120,29 @@ input[type=range]{width:100%}
 
 <body>
 
-<div id="intro">22SC</div>
-<div class="noise"></div>
+<div class="main">
+  <div class="card">
 
-<audio id="music" preload="metadata">
-  <source src="./memories.mp3" type="audio/mpeg">
-</audio>
+    <img src="./31237.jpg" class="avatar" alt="avatar">
 
-<div class="card">
-  <img class="avatar" src="./31237.jpg" alt="avatar">
-  <div class="name">22sc</div>
+    <div class="name">22sc</div>
 
-  <div class="bio">
-    <span>ٱتبَكي على عِتابٍ قد مضى؟</span>
-    <span>ولو كان يُحبكِ… قد بقى.</span>
-    <span>آفيقي قليلًا أيتها الجَميلة،</span>
-    <span>هل سَمعتِ بميتٍ</span>
-    <span>بعدَ الرحيلِ قد أتى؟</span>
-  </div>
-
-  <div class="links">
-    <a href="https://discord.com/users/561344344699830272" target="_blank"><i class="fab fa-discord"></i></a>
-    <a href="https://open.spotify.com/user/31vdshidmrdk5fp3awcif3ih7bfa" target="_blank"><i class="fab fa-spotify"></i></a>
-    <a href="https://steamcommunity.com/profiles/76561198761139458/" target="_blank"><i class="fab fa-steam"></i></a>
-    <a href="https://github.com/IKTIAB" target="_blank"><i class="fab fa-github"></i></a>
-    <div class="copy-btn" id="copyDiscord"><i class="fa fa-copy"></i></div>
-  </div>
-</div>
-
-<div class="player">
-  <div class="glow-line"></div>
-  <div class="player-ui">
-    <input type="range" id="seek" value="0">
-    <div style="display:flex;justify-content:center;margin-top:8px">
-      <div class="play-btn" id="playBtn"><i class="fa fa-play"></i></div>
+    <div class="bio">
+      ٱتبَكي على عِتابٍ قد مضى؟<br>
+      ولو كان يُحبكِ… قد بقى.
     </div>
+
+    <div class="links">
+      <a href="https://discord.com/users/561344344699830272" target="_blank">
+        <i class="fab fa-discord"></i>
+      </a>
+      <a href="https://github.com/IKTIAB" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+
   </div>
 </div>
-
-<script>
-const music = document.getElementById("music");
-const playBtn = document.getElementById("playBtn");
-const seek = document.getElementById("seek");
-let unlocked = false;
-
-/* restore time */
-if(localStorage.musicTime){
-  music.currentTime = localStorage.musicTime;
-}
-
-/* unlock audio on first interaction */
-const unlock = () => {
-  if(unlocked) return;
-  unlocked = true;
-  music.play().then(()=>{
-    playBtn.innerHTML = "❚❚";
-    localStorage.musicPlay = "1";
-  }).catch(()=>{});
-  document.removeEventListener("click", unlock);
-  document.removeEventListener("touchstart", unlock);
-};
-document.addEventListener("click", unlock);
-document.addEventListener("touchstart", unlock);
-
-/* play / pause */
-playBtn.onclick = () => {
-  if(music.paused){
-    music.play();
-    playBtn.innerHTML="❚❚";
-    localStorage.musicPlay="1";
-  }else{
-    music.pause();
-    playBtn.innerHTML="▶";
-    localStorage.musicPlay="0";
-  }
-};
-
-/* progress */
-music.ontimeupdate = () => {
-  seek.value = (music.currentTime / music.duration) * 100 || 0;
-  localStorage.musicTime = music.currentTime;
-};
-seek.oninput = () => {
-  music.currentTime = (seek.value/100) * music.duration;
-};
-
-/* copy */
-copyDiscord.onclick = () => {
-  navigator.clipboard.writeText("561344344699830272");
-};
-</script>
 
 </body>
 </html>
