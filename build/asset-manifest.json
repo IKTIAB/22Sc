@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/maan-silver-night/static/css/main.02d250c6.css",
+    "main.js": "/maan-silver-night/static/js/main.287bc2df.js",
+    "index.html": "/maan-silver-night/index.html",
+    "main.02d250c6.css.map": "/maan-silver-night/static/css/main.02d250c6.css.map",
+    "main.287bc2df.js.map": "/maan-silver-night/static/js/main.287bc2df.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.02d250c6.css",
+    "static/js/main.287bc2df.js"
+  ]
+}
